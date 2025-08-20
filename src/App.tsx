@@ -18,6 +18,7 @@ import Packages from "./pages/dashboard/Packages";
 import Artisan from "./pages/dashboard/Artisan";
 import Food from "./pages/dashboard/Food";
 import Tickets from "./pages/dashboard/Tickets";
+import Settings from "./pages/dashboard/Settings";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -43,6 +44,7 @@ const App = () => (
             <Route path="/dashboard/artisan" element={<Artisan />} />
             <Route path="/dashboard/food" element={<Food />} />
             <Route path="/dashboard/tickets" element={<Tickets />} />
+            <Route path="/dashboard/settings" element={<Settings />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
