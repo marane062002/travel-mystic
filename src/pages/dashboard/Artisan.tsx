@@ -253,7 +253,6 @@ const ArtisanPage = () => {
                     </div>
                   </div>
 
-                  {/* Rest of form fields with similar styling... */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="group">
                       <label className="block text-sm font-semibold text-gray-700 mb-2">Statut *</label>
@@ -461,101 +460,6 @@ const ArtisanPage = () => {
                   </div>
                 ))}
               </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </DashboardLayout>
-  );
-};
-
-export default ArtisanPage;
-            </div>
-          </div>
-        )}
-
-        {/* Artisan List */}
-        <div className="bg-background rounded-xl border border-border shadow-sm">
-          <div className="p-6 border-b border-border">
-            <h2 className="text-xl font-bold text-foreground">Liste des produits artisanaux</h2>
-          </div>
-          <div className="divide-y divide-border">
-            {loading ? (
-              <div className="p-6 text-center text-muted-foreground">Chargement...</div>
-            ) : artisans.length === 0 ? (
-              <div className="p-6 text-center text-muted-foreground">
-                Aucun produit artisanal trouvé. Cliquez sur "Ajouter un produit" pour commencer.
-              </div>
-            ) : (
-              artisans.map(artisan => (
-                <div key={artisan.id} className="p-6">
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
-                    <div>
-                      <h3 className="font-bold text-lg">{artisan.name}</h3>
-                      <div className="text-muted-foreground text-sm mt-1">{artisan.description}</div>
-                    </div>
-                    <div className="flex space-x-2">
-                      <button
-                        onClick={() => handleEdit(artisan)}
-                        className="flex items-center space-x-1 px-3 py-1 rounded bg-primary text-primary-foreground"
-                      >
-                        <Edit className="w-4 h-4" />
-                        <span>Modifier</span>
-                      </button>
-                      <button
-                        onClick={() => handleDelete(artisan.id)}
-                        className="flex items-center space-x-1 px-3 py-1 rounded bg-red-500 text-white"
-                      >
-                        <Trash2 className="w-4 h-4" />
-                        <span>Supprimer</span>
-                      </button>
-                    </div>
-                  </div>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
-                    <div className="flex items-center space-x-2">
-                      <Tag className="w-4 h-4 text-muted-foreground" />
-                      <span className={`px-2 py-1 rounded-full text-xs ${getCategoryColor(artisan.category)}`}>
-                        {artisan.category}
-                      </span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <span className="font-semibold">Statut:</span> 
-                      <span className={`px-2 py-1 rounded-full text-xs ${getStatusColor(artisan.status)}`}>
-                        {artisan.status}
-                      </span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <DollarSign className="w-4 h-4 text-muted-foreground" />
-                      <span>
-                        <span className="font-semibold">Prix:</span> {artisan.price} {artisan.currency}
-                      </span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Package className="w-4 h-4 text-muted-foreground" />
-                      <span className={artisan.inStock ? "text-green-600" : "text-red-600"}>
-                        {artisan.inStock ? "En stock" : "Rupture de stock"}
-                      </span>
-                    </div>
-                  </div>
-                  
-                  {artisan.materials && artisan.materials.length > 0 && (
-                    <div className="mt-4">
-                      <div className="flex items-center space-x-2 text-sm mb-2">
-                        <Hash className="w-4 h-4 text-muted-foreground" />
-                        <span className="font-semibold">Matériaux:</span>
-                      </div>
-                      <div className="flex flex-wrap gap-2">
-                        {artisan.materials.map((material, index) => (
-                          <span key={index} className="px-2 py-1 bg-muted rounded-full text-xs">
-                            {material}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))
             )}
           </div>
         </div>
